@@ -15,6 +15,11 @@ func assertEqual(t *testing.T, a, b string) {
 // test data
 
 var SingularToPlural = map[string]string{
+	"i":           "i",
+	"a":           "a",
+	"us":          "us",
+	"is":          "is",
+	"as":          "as",
 	"search":      "searches",
 	"switch":      "switches",
 	"fix":         "fixes",
@@ -45,7 +50,6 @@ var SingularToPlural = map[string]string{
 	"woman":       "women",
 	"basis":       "bases",
 	"diagnosis":   "diagnoses",
-	"diagnosis_a": "diagnosis_as",
 	"datum":       "data",
 	"medium":      "media",
 	"stadium":     "stadia",
@@ -83,7 +87,10 @@ var SingularToPlural = map[string]string{
 	"portfolio":   "portfolios",
 	"vertex":      "vertices",
 	"matrix":      "matrices",
-	"matrix_fu":   "matrix_fus",
+	"matrix fu":   "matrix fu",
+	"matrix fus":  "matrix fus",
+	"fus":         "fus",
+	"fu":          "fu",
 	"axis":        "axes",
 	"testis":      "testes",
 	"crisis":      "crises",
@@ -364,6 +371,13 @@ func TestPluralizePlural(t *testing.T) {
 	for _, plural := range SingularToPlural {
 		assertEqual(t, plural, Pluralize(plural))
 		assertEqual(t, Capitalize(plural), Capitalize(Pluralize(plural)))
+	}
+}
+
+func TestSingularizeSingular(t *testing.T) {
+	for singular := range SingularToPlural {
+		assertEqual(t, singular, Singularize(singular))
+		assertEqual(t, Capitalize(singular), Capitalize(Singularize(singular)))
 	}
 }
 
