@@ -1,6 +1,10 @@
+Fork of bitbucket.org/pkg/inflect
+
 INSTALLATION
 
-go get bitbucket.org/pkg/inflect
+```
+go get -u github.com/nullbio/inflect
+```
 
 PACKAGE
 
